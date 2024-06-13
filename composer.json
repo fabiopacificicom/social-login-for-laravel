@@ -1,6 +1,6 @@
 {
-  "name": "pacificdev/social-login",
-  "description": "Login to the laravel app using linkedin",
+  "name": "pacificdev/social-login-for-laravel",
+  "description": "Login with Linkedin for Laravel applications",
   "type": "library",
   "authors": [
     {
