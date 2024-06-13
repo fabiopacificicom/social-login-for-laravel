@@ -2,6 +2,13 @@
   "name": "pacificdev/social-login-for-laravel",
   "description": "Login with Linkedin for Laravel applications",
   "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "login",
+    "social",
+    "linkedin"
+  ],
   "authors": [
     {
       "name": "fbhood",
