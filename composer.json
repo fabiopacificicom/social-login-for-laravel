@@ -1,0 +1,30 @@
+{
+  "name": "pacificdev/social-login",
+  "description": "Login to the laravel app using linkedin",
+  "type": "library",
+  "authors": [
+    {
+      "name": "fbhood",
+      "email": "mail@fabiopacifici.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PacificDev\\SocialLogin\\": "src/",
+      "PacificDev\\SocialLogin\\Commands\\": "src/app/Commands/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "PacificDev\\SocialLogin\\PacificDevServiceProvider"
+      ]
+    }
+  },
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "*",
+    "laravel/socialite": "^5.6",
+    "socialiteproviders/linkedin": "^4.2"
+  }
+}
