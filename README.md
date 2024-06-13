@@ -67,5 +67,5 @@ php artisan vendor:publish --tag=pacificdev-social-login-migrations
 
 ## Roadmap
 
-- [ ] Linkedin Login
+- [X] Linkedin Login
 - [ ] Google Login
