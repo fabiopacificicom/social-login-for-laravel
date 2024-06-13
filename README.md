@@ -5,7 +5,7 @@ using linkedin
 
 ## Features
 
-- Log the user usinng Linkedin
+- Log the user using Linkedin
 
 ## Requirements
 
@@ -37,6 +37,17 @@ Add the social login component in the login and register pages as shown below
 ```php
 // register.blade.php
 <x-pacificdev::social-login />
+```
+
+Add the linkedin service
+
+```php
+#config/sercives.php
+ 'linkedin-openid' => [
+        'client_id' => env('LINKEDIN_CLIENT_ID'),
+        'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
+        'redirect' => env('LINKEDIN_REDIRECT_URL', '/linkedin/auth/callback'),
+    ],
 ```
 
 ## Publish the package files

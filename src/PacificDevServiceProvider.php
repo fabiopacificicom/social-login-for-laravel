@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use PacificDev\SocialLogin\Commands\SampleCommand;
 use PacificDev\SocialLogin\Commands\AnotherSampleCommand;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\File;
 
 class PacificDevServiceProvider extends ServiceProvider
 {
@@ -39,10 +40,10 @@ class PacificDevServiceProvider extends ServiceProvider
 
     ], 'pacificdev-social-login-views');
 
-    $this->publishesMigrations([
+    /* $this->publishesMigrations([
       __DIR__ . '/database/migrations' => database_path('migrations'),
 
-    ], 'pacificdev-social-login-migrations');
+    ], 'pacificdev-social-login-migrations'); */
 
 
 
@@ -53,7 +54,7 @@ class PacificDevServiceProvider extends ServiceProvider
     $this->loadRoutes(__DIR__ . '/routes');
 
     // load models
-    $this->loadModelsFrom(__DIR__ . '/Models');
+    //$this->loadModelsFrom(__DIR__ . '/Models');
 
 
     // load controllers
@@ -63,12 +64,12 @@ class PacificDevServiceProvider extends ServiceProvider
     /**
      * Checks and registers package's artisan commands
      */
-    if ($this->app->runningInConsole()) {
+    /* if ($this->app->runningInConsole()) {
       $this->commands([
         SampleCommand::class, // Todo: update or remove
         AnotherSampleCommand::class // Todo: update or remove
       ]);
-    }
+    } */
   }
 
 
