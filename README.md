@@ -24,7 +24,7 @@ This package uses OpenId connect, [read more](https://learn.microsoft.com/en-us/
 The first step is to install the package in your laravel application.
 
 ```bash
-composer require pacificdev/social-login
+composer require pacificdev/social-login-for-laravel
 ```
 
 Add the social login component in the login and register pages as shown below
