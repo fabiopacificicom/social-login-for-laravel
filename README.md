@@ -54,7 +54,7 @@ Add the social login component in the login and register pages as shown below
 Add the linkedin service
 
 ```php
-#config/sercives.php
+#config/services.php
  'linkedin-openid' => [
         'client_id' => env('LINKEDIN_CLIENT_ID'),
         'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
