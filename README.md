@@ -14,8 +14,20 @@ To use this package you need to create a linkedin application and get the follow
 - LINKEDIN_CLIENT_ID
 - LINKEDIN_CLIENT_SECRET
 
-Find out more [here](https://www.linkedin.com/help/linkedin/answer/a1667239)
-This package uses OpenId connect, [read more](https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/sign-in-with-linkedin-v2)
+### Create a linkedin app
+
+Watch the video below for a step by step guide on how to add a linkedin login to your laravel app using this package.
+
+[![How To](https://img.youtube.com/vi/tX8NEwWsfcg/0.jpg)](https://www.youtube.com/watch?v=tX8NEwWsfcg)
+
+You can find the instructions to create a new linkedin app in the official documentation [here](https://www.linkedin.com/help/linkedin/answer/a1667239)
+
+✅ Services to enable:
+
+When you create the linkedin app you need to activate the following services in the Products tab:
+
+- 1. OpenId connect, [read more](https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/sign-in-with-linkedin-v2)
+- 2. Share on Linkedin [read more](https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/share-on-linkedin)
 
 ## Usage
 
