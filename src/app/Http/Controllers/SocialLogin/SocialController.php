@@ -23,31 +23,43 @@ class SocialController extends Controller
 
   public function handleLinkedinCallback()
   {
-    // $user contains the linkedin user dedails
-    // id, nickname, name, email, avatar, token and more..
-    $user = Socialite::driver('linkedin-openid')->user();
-    //$token = $user->token;
-    //$userUrn = $user->id;
-    ## TODO: Add the user profile picture?
-    $avatar = $user->getAvatar();
+    try {
+      // $user contains the linkedin user dedails
+      // id, nickname, name, email, avatar, token and more..
+      $user = Socialite::driver('linkedin-openid')->user();
 
-    //dd($user, $token, $userUrn, $avatar, $user->name, $user->email);
+      // Check if the retrieved user object is valid
+      if (!$user || !$user->email) {
+        return redirect()->route('login')->withErrors('Failed to retrieve LinkedIn user information.');
+      }
 
-    $foundUser = User::where('email', $user->email)->first();
-    if ($foundUser) {
-      // log in the user
-      auth()->login($foundUser);
-    } else {
-      // register a new user
-      $newUser = User::create([
-        'name' => $user->name,
-        'email' => $user->email,
-        'password' => Hash::make(Str::random(16))
-      ]);
+      //$token = $user->token;
+      //$userUrn = $user->id;
+      ## TODO: Add the user profile picture?
+      $avatar = $user->getAvatar();
 
-      auth()->login($newUser);
+      //dd($user, $token, $userUrn, $avatar, $user->name, $user->email);
+
+      $foundUser = User::where('email', $user->email)->first();
+      if ($foundUser) {
+        // log in the user
+        auth()->login($foundUser);
+      } else {
+        // register a new user
+        $newUser = User::create([
+          'name' => $user->name ?? 'LinkedIn User',
+          'email' => $user->email,
+          'password' => Hash::make(Str::random(16))
+        ]);
+
+        auth()->login($newUser);
+      }
+
+      return redirect()->intended()->with('message', 'LinkedIn Access Successful');
+    } catch (\Exception $e) {
+      // Handle exceptions and log error
+      \Log::error('LinkedIn Callback Error: ' . $e->getMessage());
+      return redirect()->route('login')->withErrors('An error occurred during LinkedIn authentication.');
     }
-
-    return redirect()->intended()->with('message', 'Linkedin Access Successfull');
   }
 }
